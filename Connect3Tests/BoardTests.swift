@@ -58,4 +58,12 @@ class BoardTests: XCTestCase {
             XCTAssertEqual(board.playerAt(col: columnIndex, row: rowIndex), .White)
         }
     }
+    
+    func testNoCoinsCanBeAddedInNonExistingColumns() {
+        for columnIndex in [-1, Board.height + 2] {
+            board.playAt(col: columnIndex, player: .Red)
+            XCTAssertEqual(board.playerAt(col: columnIndex, row: 0), .Empty)
+        }
+    }
+    
 }
