@@ -12,7 +12,8 @@
 		AAD327351E6DFCBC00FA51EA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD327331E6DFCBC00FA51EA /* Main.storyboard */; };
 		AAD327371E6DFCBC00FA51EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AAD327361E6DFCBC00FA51EA /* Assets.xcassets */; };
 		AAD3273A1E6DFCBC00FA51EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD327381E6DFCBC00FA51EA /* LaunchScreen.storyboard */; };
-		AAD327451E6DFCBC00FA51EA /* Connect3Tests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327441E6DFCBC00FA51EA /* Connect3Tests.swift */; };
+		AAD327511E6E071A00FA51EA /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327501E6E071A00FA51EA /* BoardTests.swift */; };
+		AAD327541E6E076300FA51EA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327531E6E076300FA51EA /* Board.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -34,8 +35,10 @@
 		AAD327391E6DFCBC00FA51EA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		AAD3273B1E6DFCBC00FA51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		AAD327401E6DFCBC00FA51EA /* Connect3Tests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Connect3Tests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		AAD327441E6DFCBC00FA51EA /* Connect3Tests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Connect3Tests.swift; sourceTree = "<group>"; };
 		AAD327461E6DFCBC00FA51EA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		AAD3274F1E6E071900FA51EA /* Connect3Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Connect3Tests-Bridging-Header.h"; sourceTree = "<group>"; };
+		AAD327501E6E071A00FA51EA /* BoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
+		AAD327531E6E076300FA51EA /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,6 +80,7 @@
 		AAD3272E1E6DFCBC00FA51EA /* Connect3 */ = {
 			isa = PBXGroup;
 			children = (
+				AAD327521E6E075500FA51EA /* Models */,
 				AAD3272F1E6DFCBC00FA51EA /* AppDelegate.swift */,
 				AAD327311E6DFCBC00FA51EA /* ViewController.swift */,
 				AAD327331E6DFCBC00FA51EA /* Main.storyboard */,
@@ -90,10 +94,19 @@
 		AAD327431E6DFCBC00FA51EA /* Connect3Tests */ = {
 			isa = PBXGroup;
 			children = (
-				AAD327441E6DFCBC00FA51EA /* Connect3Tests.swift */,
 				AAD327461E6DFCBC00FA51EA /* Info.plist */,
+				AAD327501E6E071A00FA51EA /* BoardTests.swift */,
+				AAD3274F1E6E071900FA51EA /* Connect3Tests-Bridging-Header.h */,
 			);
 			path = Connect3Tests;
+			sourceTree = "<group>";
+		};
+		AAD327521E6E075500FA51EA /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				AAD327531E6E076300FA51EA /* Board.swift */,
+			);
+			name = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -152,6 +165,7 @@
 					AAD3273F1E6DFCBC00FA51EA = {
 						CreatedOnToolsVersion = 8.2.1;
 						DevelopmentTeam = 5QSHG3473C;
+						LastSwiftMigration = 0820;
 						ProvisioningStyle = Automatic;
 						TestTargetID = AAD3272B1E6DFCBC00FA51EA;
 					};
@@ -203,6 +217,7 @@
 			files = (
 				AAD327321E6DFCBC00FA51EA /* ViewController.swift in Sources */,
 				AAD327301E6DFCBC00FA51EA /* AppDelegate.swift in Sources */,
+				AAD327541E6E076300FA51EA /* Board.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -210,7 +225,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				AAD327451E6DFCBC00FA51EA /* Connect3Tests.swift in Sources */,
+				AAD327511E6E071A00FA51EA /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -366,11 +381,14 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5QSHG3473C;
 				INFOPLIST_FILE = Connect3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielruiz.Connect3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Connect3Tests/Connect3Tests-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect3.app/Connect3";
 			};
@@ -381,11 +399,13 @@
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CLANG_ENABLE_MODULES = YES;
 				DEVELOPMENT_TEAM = 5QSHG3473C;
 				INFOPLIST_FILE = Connect3Tests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = com.danielruiz.Connect3Tests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "Connect3Tests/Connect3Tests-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Connect3.app/Connect3";
 			};
