@@ -44,4 +44,18 @@ class BoardTests: XCTestCase {
         
         XCTAssertEqual(player, .Empty)
     }
+    
+    func testNoMoreCoinsCanBeAddedInAFullColumn() {
+        let columnIndex = 2
+        
+        for _ in 0..<Board.height {
+            board.playAt(col: columnIndex, player: .White)
+        }
+        
+        board.playAt(col: columnIndex, player: .Red)
+        
+        for rowIndex in 0..<Board.height {
+            XCTAssertEqual(board.playerAt(col: columnIndex, row: rowIndex), .White)
+        }
+    }
 }
