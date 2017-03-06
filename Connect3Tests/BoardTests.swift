@@ -40,6 +40,8 @@ class BoardTests: XCTestCase {
     }
     
     func testThatPlayerPositionIsEmpty() {
+        let player = board.playerAt(col: 0, row: 0)
         
+        XCTAssertEqual(player, .Empty)
     }
 }
