@@ -14,6 +14,7 @@
 		AAD3273A1E6DFCBC00FA51EA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = AAD327381E6DFCBC00FA51EA /* LaunchScreen.storyboard */; };
 		AAD327511E6E071A00FA51EA /* BoardTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327501E6E071A00FA51EA /* BoardTests.swift */; };
 		AAD327541E6E076300FA51EA /* Board.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327531E6E076300FA51EA /* Board.swift */; };
+		AAD327561E6F4EE200FA51EA /* SequenceTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAD327551E6F4EE200FA51EA /* SequenceTest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -39,6 +40,7 @@
 		AAD3274F1E6E071900FA51EA /* Connect3Tests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Connect3Tests-Bridging-Header.h"; sourceTree = "<group>"; };
 		AAD327501E6E071A00FA51EA /* BoardTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BoardTests.swift; sourceTree = "<group>"; };
 		AAD327531E6E076300FA51EA /* Board.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Board.swift; sourceTree = "<group>"; };
+		AAD327551E6F4EE200FA51EA /* SequenceTest.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SequenceTest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 				AAD327461E6DFCBC00FA51EA /* Info.plist */,
 				AAD327501E6E071A00FA51EA /* BoardTests.swift */,
 				AAD3274F1E6E071900FA51EA /* Connect3Tests-Bridging-Header.h */,
+				AAD327551E6F4EE200FA51EA /* SequenceTest.swift */,
 			);
 			path = Connect3Tests;
 			sourceTree = "<group>";
@@ -225,6 +228,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AAD327561E6F4EE200FA51EA /* SequenceTest.swift in Sources */,
 				AAD327511E6E071A00FA51EA /* BoardTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

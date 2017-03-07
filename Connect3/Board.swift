@@ -1,3 +1,4 @@
+import Foundation
 
 enum Player {
     case Red
@@ -49,5 +50,44 @@ struct Board {
         }
         
         return _board[col][row]
+    }
+}
+
+//MARK: - Protocols
+
+extension Board: Equatable {
+    
+    public static func ==(lhs: Board, rhs: Board) -> Bool {
+        return lhs.proxyForEquality == rhs.proxyForEquality
+    }
+    
+}
+
+extension Board: Hashable {
+    var hashValue: Int {
+        get {
+            return self.proxyForHashValue
+        }
+    }
+}
+
+//MARK: - Proxies
+
+extension Board {
+    var proxyForEquality: [Player] {
+        get {
+            return _board.flatMap{ $0 }
+        }
+    }
+    
+    var proxyForHashValue: Int {
+        get {
+            var proxy: String = ""
+            for player in proxyForEquality {
+                proxy = "\(proxy)\(player)"
+            }
+            
+            return proxy.hashValue
+        }
     }
 }
