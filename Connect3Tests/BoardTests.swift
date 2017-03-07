@@ -66,4 +66,22 @@ class BoardTests: XCTestCase {
         }
     }
     
+    func testForAWinInAColumn() {
+        board.playAt(col: 0, player: .Red)
+        board.playAt(col: 0, player: .Red)
+        board.playAt(col: 0, player: .Red)
+        
+        XCTAssertEqual(board.hasWinner(), true)
+        XCTAssertEqual(board.winner, .Red)
+    }
+    
+    func testForNotAWinInAColumn() {
+        board.playAt(col: 0, player: .Red)
+        board.playAt(col: 0, player: .White)
+        board.playAt(col: 0, player: .Red)
+        board.playAt(col: 0, player: .Red)
+        
+        XCTAssertEqual(board.hasWinner(), false)
+    }
+    
 }

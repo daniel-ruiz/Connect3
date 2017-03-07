@@ -13,6 +13,13 @@ struct Board {
     static let height = 5
     
     var _board: [BoardColumn]
+    var _winner: Player = .Empty
+    
+    var winner: Player {
+        get {
+            return _winner
+        }
+    }
     
     init() {
         _board = [
@@ -34,6 +41,7 @@ struct Board {
         for (index, currentPlayer) in column.enumerated() {
             if currentPlayer == .Empty {
                 _board[col][index] = player
+                checkWinner(col: col, row: index, player: player)
                 break
             }
         }
@@ -49,5 +57,16 @@ struct Board {
         }
         
         return _board[col][row]
+    }
+    
+    func hasWinner() -> Bool {
+        return _winner != .Empty
+    }
+    
+    fileprivate mutating func checkWinner(col: Int, row: Int, player: Player) {
+        if player == playerAt(col: col, row: row - 1) &&
+            player == playerAt(col: col, row: row - 2) {
+            _winner = player
+        }
     }
 }
