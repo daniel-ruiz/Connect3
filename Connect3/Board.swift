@@ -51,6 +51,26 @@ struct Board {
         
         return _board[col][row]
     }
+    
+    func winnerInColumn(col: Int) -> Player {
+        let column = _board[col]
+        var eligibleWinner: Player = .Empty
+        var consecutiveCounts = 0
+        
+        for player in column {
+            if player == eligibleWinner {
+                consecutiveCounts = consecutiveCounts + 1
+            } else {
+                eligibleWinner = player
+                consecutiveCounts = 1
+            }
+            guard consecutiveCounts < 3 else {
+                return eligibleWinner
+            }
+        }
+        
+        return .Empty
+    }
 }
 
 //MARK: - Protocols

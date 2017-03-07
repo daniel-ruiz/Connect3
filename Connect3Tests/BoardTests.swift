@@ -99,4 +99,30 @@ class BoardTests: XCTestCase {
     func testBoard_hasStringRepresentation() {
         XCTAssertNotNil(board! as? CustomStringConvertible)
     }
+    
+    func testBoard_hasWinnerInColumn() {
+        XCTAssertEqual(board.winnerInColumn(col: 0), .Empty)
+        
+        board.playAt(col: 3, player: .Red)
+        board.playAt(col: 3, player: .Red)
+        board.playAt(col: 3, player: .Red)
+        
+        XCTAssertEqual(board.winnerInColumn(col: 3), .Red)
+        
+        board.playAt(col: 2, player: .Red)
+        board.playAt(col: 2, player: .Red)
+        board.playAt(col: 2, player: .White)
+        board.playAt(col: 2, player: .White)
+        board.playAt(col: 2, player: .White)
+        
+        XCTAssertEqual(board.winnerInColumn(col: 2), .White)
+        
+        board.playAt(col: 1, player: .Red)
+        board.playAt(col: 1, player: .White)
+        board.playAt(col: 1, player: .Red)
+        board.playAt(col: 1, player: .White)
+        board.playAt(col: 1, player: .White)
+        
+        XCTAssertEqual(board.winnerInColumn(col: 1), .Empty)
+    }
 }
