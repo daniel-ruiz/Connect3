@@ -66,6 +66,14 @@ extension Board: Equatable {
 extension Board: Hashable {
     var hashValue: Int {
         get {
+            return self.proxyForHashValue.hashValue
+        }
+    }
+}
+
+extension Board: CustomStringConvertible {
+    var description: String {
+        get {
             return self.proxyForHashValue
         }
     }
@@ -80,14 +88,14 @@ extension Board {
         }
     }
     
-    var proxyForHashValue: Int {
+    var proxyForHashValue: String {
         get {
             var proxy: String = ""
             for player in proxyForEquality {
                 proxy = "\(proxy)\(player)"
             }
             
-            return proxy.hashValue
+            return proxy
         }
     }
 }

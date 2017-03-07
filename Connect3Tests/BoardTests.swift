@@ -95,4 +95,8 @@ class BoardTests: XCTestCase {
         XCTAssertNotEqual(playedBoard?.hashValue, board.hashValue)
         
     }
+    
+    func testBoard_hasStringRepresentation() {
+        XCTAssertNotNil(board! as? CustomStringConvertible)
+    }
 }
