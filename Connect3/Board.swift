@@ -76,6 +76,10 @@ struct Board {
         return .Empty
     }
     
+    func winnerInRow(row: Int) -> Player {
+        return proxyForWinnerInRow.winnerInColumn(col: row)
+    }
+    
     func transpose() -> Board {
         var transposedBoard = _board
         
@@ -132,6 +136,12 @@ extension Board {
             }
             
             return proxy
+        }
+    }
+    
+    var proxyForWinnerInRow: Board {
+        get {
+            return self.transpose()
         }
     }
 }
