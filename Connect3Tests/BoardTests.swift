@@ -125,4 +125,23 @@ class BoardTests: XCTestCase {
         
         XCTAssertEqual(board.winnerInColumn(col: 1), .Empty)
     }
+    
+    func testBoard_canBeTransposed() {
+        XCTAssertEqual(board, board.transpose())
+        
+        board.playAt(col: 2, player: .Red)
+        board.playAt(col: 2, player: .White)
+        board.playAt(col: 3, player: .Red)
+        board.playAt(col: 1, player: .White)
+        board.playAt(col: 0, player: .Red)
+        
+        let transposedBoard = board.transpose()
+        
+        XCTAssertEqual(transposedBoard.playerAt(col: 0, row: 2), .Red)
+        XCTAssertEqual(transposedBoard.playerAt(col: 1, row: 2), .White)
+        XCTAssertEqual(transposedBoard.playerAt(col: 0, row: 3), .Red)
+        XCTAssertEqual(transposedBoard.playerAt(col: 0, row: 1), .White)
+        XCTAssertEqual(transposedBoard.playerAt(col: 0, row: 0), .Red)
+        
+    }
 }

@@ -25,6 +25,10 @@ struct Board {
         ]
     }
     
+    init(board: [BoardColumn]) {
+        _board = board
+    }
+    
     mutating func playAt(col: Int, player: Player) {
         guard col >= 0 && col < Board.width else {
             return
@@ -70,6 +74,18 @@ struct Board {
         }
         
         return .Empty
+    }
+    
+    func transpose() -> Board {
+        var transposedBoard = _board
+        
+        for column in 0..<Board.width {
+            for row in 0..<Board.height {
+                transposedBoard[column][row] = _board[row][column]
+            }
+        }
+        
+        return Board(board: transposedBoard)
     }
 }
 
