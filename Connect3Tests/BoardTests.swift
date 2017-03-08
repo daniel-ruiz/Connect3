@@ -147,22 +147,20 @@ class BoardTests: XCTestCase {
     
     func testBoard_hasWinnerInRow() {
         board.playAt(col: 0, player: .White)
-        board.playAt(col: 0, player: .Red)
-        board.playAt(col: 0, player: .White)
-        
         board.playAt(col: 1, player: .Red)
-        board.playAt(col: 1, player: .White)
-        board.playAt(col: 1, player: .White)
-        
         board.playAt(col: 2, player: .Red)
-        board.playAt(col: 2, player: .Red)
-        board.playAt(col: 2, player: .White)
-        
         board.playAt(col: 3, player: .White)
-        board.playAt(col: 3, player: .Red)
-        
         board.playAt(col: 4, player: .White)
+        
+        board.playAt(col: 0, player: .Red)
+        board.playAt(col: 1, player: .White)
+        board.playAt(col: 2, player: .Red)
+        board.playAt(col: 3, player: .Red)
         board.playAt(col: 4, player: .Red)
+        
+        board.playAt(col: 0, player: .White)
+        board.playAt(col: 1, player: .White)
+        board.playAt(col: 2, player: .White)
         
         XCTAssertEqual(board.winnerInRow(row: 0), .Empty)
         XCTAssertEqual(board.winnerInRow(row: 1), .Red)
